@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import modelImage from "../../assets/Model1.png";
+import EditTemplate from '../views/parent/templateEdit'
 
 const Fashion = () => {
   const BaseImg = styled.div`
@@ -12,6 +14,7 @@ const Fashion = () => {
   `;
 
   const ModelImg = styled.div`
+
     height: 90%;
     width: 50%;
     background-image: url(${modelImage});
@@ -108,24 +111,55 @@ const Fashion = () => {
     line-height: 1px;
     position: absolute;
   `;
+const modelImageCreated=modelImage
+const [heading,setHeading]=useState('FASHION ')
+const [offer1,setOffer1]=useState(' BUY 3 @ 42 % OFF *')
+const [offer2,setOffer2]=useState('   BUY 3 @ 40 % OFF *')
+const [couponCode,setCouponCode]=useState('  MSLB3')
+
+
+const handleCallbackforHeading = (childData) =>{
+  console.log("hhh---",childData.target.value)
+  setHeading( childData.target.value)
+}
+
+
+const handleCallbackforOffer1 = (childData) =>{
+  setOffer1( childData.target.value)
+}
+
+const handleCallbackforOffer2= (childData) =>{
+  setOffer2(childData.target.value)
+}
+
+const handleCallbackforCouponCode= (childData) =>{
+  setCouponCode(childData.target.value)
+}
 
   return (
-    <BaseImg>
-      <ModelImg> </ModelImg> <HeadDiv> FASHION </HeadDiv>
+    <React.Fragment>
+    <EditTemplate  parentCallback={handleCallbackforHeading} value={heading} />
+    <EditTemplate  parentCallback={handleCallbackforOffer1}  value={offer1}/>
+    <EditTemplate  parentCallback={handleCallbackforOffer2} value={offer2}/>
+    <EditTemplate  parentCallback={handleCallbackforCouponCode} value={couponCode}/>
+  
+    <BaseImg >
+      <ModelImg modelimage={modelImageCreated}> </ModelImg> <HeadDiv> {heading} </HeadDiv>
       <Offer>
-        BUY 3 @ 42 % OFF *
+       {offer1}
         <br />
         <br />
-        BUY 3 @ 40 % OFF *
+      {offer2}
       </Offer>{" "}
       <span />
       <CoupanCode>
         <br />
         <span />
-        COUPAN: <Code> MSLB3 </Code>{" "}
+        COUPON: <Code> {couponCode} </Code>{" "}
         <Terms> * GST Applicable on discounted prices | TC apply </Terms>{" "}
       </CoupanCode>
     </BaseImg>
+    </React.Fragment>
   );
 };
 export default Fashion;

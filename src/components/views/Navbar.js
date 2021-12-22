@@ -13,7 +13,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 
 function NavbarMenu ()
 {
-    console.warn("UploadView---",UploadView)
+ 
     const logoCss={
         height: '10vmin',
         pointerEvents: 'none'

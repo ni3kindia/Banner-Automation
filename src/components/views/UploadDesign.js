@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 class UploadView extends React.Component {
   constructor() {
     super();
@@ -46,6 +48,7 @@ class UploadView extends React.Component {
 
     return (
       <div>
+
         <table className="table">
           <thead>
             <tr>

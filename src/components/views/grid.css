@@ -1,0 +1,35 @@
+.flex-container {
+
+    display: flex;
+    
+    width: 300px;
+    
+    border:2px solid gray;
+    
+    
+    
+    flex-wrap: wrap;
+    
+    }
+    
+    
+    
+    .item-class
+    
+    {
+    
+    text-align: center;
+    
+    background-color: red;
+    
+    border :2px solid black;
+    
+    line-height: 75px;
+    
+    margin:12px;
+    
+    width:122px;
+    
+    height: 122px;
+    
+    }
